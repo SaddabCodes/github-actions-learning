@@ -1,0 +1,25 @@
+name: Run Java Code
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: java
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+    
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+            distribution: 'temurin'
+            java-version: 21
+
+      - name: Complie Java
+        run: javac Test.java
+
+      - name: Run Java Program
+        run: java Test
