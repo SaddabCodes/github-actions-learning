@@ -17,5 +17,8 @@ jobs:
               echo "Run Number: ${{ github.run_number }}"
               echo "Branch Ref: ${{ github.ref }}"
               echo "Commit SHA: ${{ github.sha }}"
+        - name: Retrieve Variable
+          run: |
+              echo "Variable Value: ${{vars.MY_VAR}}"
     
           
