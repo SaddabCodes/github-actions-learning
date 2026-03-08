@@ -1,0 +1,33 @@
+name: 09 - Functions
+
+on: 
+  push:
+  workflow_dispatch:
+    
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Step 1 - Success Step
+        run: echo "This step runs successfully"
+
+      - name: Step 2 - Failure Step
+        run: exit 1
+
+      - name: Step 3 - Run if Success
+        if: ${{ success() }}
+        run: echo "All previous steps succeeded"
+
+      - name: Step 4 - Run if Failure
+        if: ${{ failure() }}
+        run: echo "A previous step failed"
+
+      - name: Step 5 - Run if Cancelled
+        if: ${{ cancelled() }}
+        run: echo "Workflow was cancelled"
+
+      - name: Step 6 - Always Run
+        if: ${{ always() }}
+        run: echo "This step always runs"
