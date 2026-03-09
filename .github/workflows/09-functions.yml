@@ -1,7 +1,7 @@
 name: 09 - Functions
 
 on: 
-  push:
+#   push:
   workflow_dispatch:
     
 

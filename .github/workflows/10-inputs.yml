@@ -1,0 +1,34 @@
+name: 10 - Working with inputs
+  
+on:
+  workflow_dispatch:
+    inputs:
+      username:
+        description: "Enter your name"
+        required: true
+        type: string
+
+      run_tests:
+        description: "Run tests?"
+        type: boolean
+
+      environment:
+        description: "Select environment"
+        type: choice
+        options:
+          - dev
+          - prod
+
+      retries:
+        description: "Retry count"
+        type: number
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "User: ${{ inputs.username }}"
+          echo "Run tests: ${{ inputs.run_tests }}"
+          echo "Environment: ${{ inputs.environment }}"
+          echo "Retries: ${{ inputs.retries }}"
