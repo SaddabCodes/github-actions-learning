@@ -1,0 +1,34 @@
+name: 13 - Artifacts
+  
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: java
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+    
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+            distribution: 'temurin'
+            java-version: 21
+
+      - name: Complie Java
+        run: javac Test.java
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+            name: java-compiled files
+            path: java/Test.class
+
+      - name: Run Java Program
+        run: java Test
+
+  
