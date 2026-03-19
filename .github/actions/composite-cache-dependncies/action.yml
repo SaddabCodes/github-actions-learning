@@ -5,14 +5,12 @@ description: "Build and test project"
 runs:
   using: "composite"
   steps:
+    - name: Setup Java
+      uses: actions/setup-java@v5
+      with:
+        distribution: 'temurin'
+        java-version: '21'
+
     - name: Build
       run: mvn clean install
-      shell: bash
-
-    - name: Test
-      run: mvn test
-      shell: bash
-
-    - name: Done
-      run: echo "Build Completed"
       shell: bash
