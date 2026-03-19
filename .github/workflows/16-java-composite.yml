@@ -1,4 +1,4 @@
-name: Java CI(Composite)
+name: 16 - Java CI(Composite)
 
 on:
   workflow_dispatch:
